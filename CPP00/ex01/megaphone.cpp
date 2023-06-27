@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 20:22:33 by javiersa          #+#    #+#             */
-/*   Updated: 2023/06/06 20:14:19 by javiersa         ###   ########.fr       */
+/*   Created: 2023/06/27 18:21:50 by javiersa          #+#    #+#             */
+/*   Updated: 2023/06/27 18:21:53 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
