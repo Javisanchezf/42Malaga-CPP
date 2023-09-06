@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 18:33:16 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/05 20:10:43 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/06 21:44:35 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,21 @@ private:
 	std::string	_nickname;
 	std::string	_phone;
 	std::string	_secret;
-	int			_index;
-
-	std::string	_getstrinput(std::string	str) const;
-	int			_getintinput(std::string	str) const;
 
 public:
-	contact(/* args */);
-	~contact();
+	contact(void);
+	~contact(void);
 
-	void	init(void);
+	std::string		get_firstname(void)	const;
+	std::string		get_lastname(void)	const;
+	std::string		get_nickname(void)	const;
+	std::string		get_phone(void)	const;
+	std::string		get_secret(void)	const;
+	void			set_firstname(std::string str);
+	void			set_lastname(std::string str);
+	void			set_nickname(std::string str);
+	void			set_phone(std::string str);
+	void			set_secret(std::string str);
 };
 
 #endif
