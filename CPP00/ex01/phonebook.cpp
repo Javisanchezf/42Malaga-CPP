@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:37 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/07 21:36:12 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/07 22:06:31 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,72 @@ void		phonebook::add_contact(void)
 	this->_contact[new_index].set_data(4, _getinput(BLUE"Darkest secret\t: "DEFAULT));
 	this->_index++;
 }
+std::string	phonebook::_fix_column(std::string	word)
+{
+	std::string	fix;
+	size_t		size;
+
+	size = word.length();
+	if (size >= 10)
+	{
+		fix = word.substr(0, 9);
+		fix += '.';
+	}
+	else
+	{
+		fix = " " + word;
+		while (fix.length() < 10)
+		{
+			fix += " ";
+			if (fix.length() < 10)
+				fix = " " + fix;
+		}
+	}
+	return (fix);
+}
+
+int		phonebook::_getintinput(std::string	str) const
+{
+	std::string	strinput;
+	int			input;
+	bool		valid;
+
+	valid = false;
+	while (!valid)
+	{
+		std::cout << str;
+		strinput = _getinput(str);
+		try
+		{
+			input = std::stoi(strinput);
+			valid = true;
+		}
+		catch (const std::invalid_argument& e)
+		{
+			std::cout << "Invalid input; please enter a valid integer.\n";
+		}
+		catch (const std::out_of_range& e)
+		{
+			std::cout << "Input out of range for integer; please enter a smaller number.\n";
+		}
+		if (valid)
+		{
+			char leftover;
+			if (std::cin.get(leftover) && !std::isspace(leftover))
+			{
+				std::cout << "Invalid input; please enter a valid number.\n";
+				valid = false;
+			}
+		}
+	}
+	return(input);
+}
 
 void		phonebook::search_contact(void) const
 {
-	int		i;
-	int		j;
+	int			i;
+	int			j;
+	std::string	nbr;
 
 	i = 0;
 	std::cout << CYAN "---------------------------------------------\n";
@@ -82,9 +143,9 @@ void		phonebook::search_contact(void) const
 	{
 		j = -1;
 		std::cout << "|    " << i << "     |";
-		while (++j < 5)
+		while (++j < 3)
 		{
-			std::cout << this->_contact[i].get_data(j) << "|";
+			std::cout << _fix_column(this->_contact[i].get_data(j)) << "|";
 		}
 		std::cout << "\n";
 		i++;

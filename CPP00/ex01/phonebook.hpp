@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:44 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/07 20:59:25 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/07 21:57:54 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class	phonebook
 		contact	_contact[8];
 		int		_index;
 		std::string	_getinput(std::string	str) const;
+		std::string	_fix_column(std::string	word);
 
 	public:
 		phonebook(void);
