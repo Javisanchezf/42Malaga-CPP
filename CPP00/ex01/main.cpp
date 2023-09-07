@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 18:33:16 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/07 20:21:10 by javiersa         ###   ########.fr       */
+/*   Created: 2023/09/07 20:02:08 by javiersa          #+#    #+#             */
+/*   Updated: 2023/09/07 21:09:58 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define	CONTACT_HPP
+#include	"phonebook.hpp"
 
-/*----------------------------LIBRARIES----------------------------*/
-
-#include	<iostream>
-#include	<iomanip>
-
-/*----------------------------CLASS----------------------------*/
-
-class contact
+int	main(void)
 {
-	private:
-		std::string	_data[5];
+	phonebook	book;
 
-	public:
-		contact(void);
-		~contact(void);
-
-		std::string		get_data(int i)	const;
-		void			set_data(int i, std::string str);
-};
-
-#endif
+	book.welcome();
+	book.add_contact();
+	book.add_contact();
+	book.search_contact();
+}

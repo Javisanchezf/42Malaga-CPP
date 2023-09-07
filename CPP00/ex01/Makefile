@@ -6,13 +6,13 @@
 #    By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/06 21:29:41 by javiersa          #+#    #+#              #
-#    Updated: 2023/09/06 21:29:44 by javiersa         ###   ########.fr        #
+#    Updated: 2023/09/07 20:04:39 by javiersa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # General variables
-NAME = megaphone.a
-PROGRAM = megaphone
+NAME = phonebook.a
+PROGRAM = phonebook
 PERSONALNAME = Megaphone
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++

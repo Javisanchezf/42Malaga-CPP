@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 18:33:13 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/06 21:48:04 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/07 19:59:09 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,54 +20,14 @@ contact::~contact(void)
 {
 }
 
-std::string		contact::get_firstname(void)	const
+std::string		contact::get_data(int i)	const
 {
-	return (this->_firstname);
+	return (this->_data[i]);
 }
 
-std::string		contact::get_lastname(void)	const
+void			contact::set_data(int i, std::string str)
 {
-	return (this->_lastname);
-}
-
-std::string		contact::get_nickname(void)	const
-{
-	return (this->_nickname);
-}
-
-std::string		contact::get_phone(void)	const
-{
-	return (this->_phone);
-}
-
-std::string		contact::get_secret(void)	const
-{
-	return (this->_secret);
-}
-
-void			contact::set_firstname(std::string str)
-{
-	this->_firstname = str;
-}
-
-void			contact::set_lastname(std::string str)
-{
-	this->_lastname = str;
-}
-
-void			contact::set_nickname(std::string str)
-{
-	this->_nickname = str;
-}
-
-void			contact::set_phone(std::string str)
-{
-	this->_phone = str;
-}
-
-void			contact::set_secret(std::string str)
-{
-	this->_secret = str;
+	this->_data[i] = str;
 }
 
 // std::string	contact::_getstrinput(std::string	str) const
