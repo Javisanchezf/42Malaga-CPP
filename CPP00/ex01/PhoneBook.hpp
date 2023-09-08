@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:44 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/08 20:28:24 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/08 21:55:45 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*----------------------------LIBRARIES----------------------------*/
 
-#include	"contact.hpp"
+#include	"Contact.hpp"
 
 /*----------------------------COLORS----------------------------*/
 # define BOLD	"\033[1m"
@@ -31,18 +31,18 @@
 
 /*----------------------------CLASS----------------------------*/
 
-class	phonebook
+class	PhoneBook
 {
 	private:
-		contact	_contact[8];
+		Contact	_contact[8];
 		int		_index;
 		std::string	_getinput(std::string str) const;
 		std::string	_fix_column(std::string word) const;
 		int			_getintinput(std::string str, int max) const;
 
 	public:
-		phonebook(void);
-		~phonebook(void);
+		PhoneBook(void);
+		~PhoneBook(void);
 		void		welcome(void);
 		void		add_contact(void);
 		void		search_contact(void) const;

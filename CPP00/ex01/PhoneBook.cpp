@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:37 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/08 21:31:57 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/08 21:53:44 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"phonebook.hpp"
+#include	"PhoneBook.hpp"
 
-phonebook::phonebook(void)
+PhoneBook::PhoneBook(void)
 {
 	this->_index = 0;
 }
 
-phonebook::~phonebook(void)
+PhoneBook::~PhoneBook(void)
 {
-	std::cout << RED "🗑️\tPhonebook deleted\t🗑️\n" DEFAULT;
+	std::cout << RED "🗑️\tPhoneBook deleted\t🗑️\n" DEFAULT;
 }
 
-void			phonebook::welcome(void)
+void			PhoneBook::welcome(void)
 {
 	std::cout << "----------------------------------------------\n";
-	std::cout << BOLD "|  📞 Welcome to your personal phonebook 📞  |\n";
+	std::cout << BOLD "|  📞 Welcome to your personal PhoneBook 📞  |\n";
 	std::cout << "--------------------USAGE---------------------\n";
 	std::cout << "| ADD : To add a contact.                    |\n";
 	std::cout << "| SEARCH : To search for a contact.          |\n";
@@ -35,27 +35,7 @@ void			phonebook::welcome(void)
 	std::cout << "----------------------------------------------\n" DEFAULT;
 }
 
-std::string	phonebook::_getinput(std::string str) const
-{
-	std::string	input;
-	bool		valid = false;
-
-	while (!valid)
-	{
-		std::cout << str;
-		std::getline(std::cin, input);
-		if (std::cin.good() && !input.empty())
-			valid = true;
-		else if (std::cin.eof())
-			exit(0);
-		else
-			std::cout << RED "Invalid input; please try again.\n" DEFAULT;
-		std::cin.clear();
-	}
-	return(input);
-}
-
-void		phonebook::add_contact(void)
+void		PhoneBook::add_contact(void)
 {
 	int		new_index;
 
@@ -67,61 +47,8 @@ void		phonebook::add_contact(void)
 	this->_contact[new_index].set_data(4, _getinput(BLUE "Darkest secret\t: " DEFAULT));
 	this->_index++;
 }
-std::string	phonebook::_fix_column(std::string word) const
-{
-	std::string	fix;
-	size_t		size;
 
-	size = word.length();
-	if (size >= 10)
-	{
-		fix = word.substr(0, 9);
-		fix += '.';
-	}
-	else
-	{
-		fix = word;
-		while (fix.length() < 10)
-				fix = " " + fix;
-	}
-	return (fix);
-}
-
-int		phonebook::_getintinput(std::string str, int max) const
-{
-	std::string	strinput;
-	int			input;
-	bool		valid = false;
-
-	if (max > 7)
-		max = 7;
-	while (!valid)
-	{
-		strinput = _getinput(str);
-		valid = true;
-		for (size_t _ = 0; _ < strinput.length(); _++)
-		{
-			if (!std::isdigit(strinput[_]))
-			{
-				std::cout << RED "Invalid input; please enter a valid integer.\n" DEFAULT;
-				valid = false;
-				break ;
-			}
-		}
-		if (valid)
-		{
-			input = std::atoi(strinput.c_str());			
-			if (input > max || input < 0)
-			{
-				std::cout << RED "Input out of range for contact; please try 0 to " << max << ".\n" DEFAULT;
-				valid = false;
-			}
-		}
-	}
-	return(input);
-}
-
-void		phonebook::search_contact(void) const
+void		PhoneBook::search_contact(void) const
 {
 	int			i;
 	int			j;

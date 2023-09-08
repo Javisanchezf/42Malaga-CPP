@@ -6,11 +6,11 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 20:02:08 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/08 21:25:23 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/08 21:56:10 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"phonebook.hpp"
+#include	"PhoneBook.hpp"
 
 std::string	cin_plus(std::string str)
 {
@@ -34,7 +34,7 @@ std::string	cin_plus(std::string str)
 
 int	main(void)
 {
-	phonebook	book;
+	PhoneBook	book;
 	std::string	command;
 
 	book.welcome();
@@ -48,6 +48,7 @@ int	main(void)
 		else if (command.compare("EXIT") == 0)
 			break ;
 		else
-			std::cout << RED "Invalid command. You can only use ADD, SEARCH or EXIT.\n" DEFAULT;
+			std::cout << RED "Invalid command. You can only use ADD, \
+SEARCH or EXIT.\n" DEFAULT;
 	}
 }
