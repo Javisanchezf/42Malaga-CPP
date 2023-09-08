@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:44 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/07 21:57:54 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:28:24 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ class	phonebook
 	private:
 		contact	_contact[8];
 		int		_index;
-		std::string	_getinput(std::string	str) const;
-		std::string	_fix_column(std::string	word);
+		std::string	_getinput(std::string str) const;
+		std::string	_fix_column(std::string word) const;
+		int			_getintinput(std::string str, int max) const;
 
 	public:
 		phonebook(void);

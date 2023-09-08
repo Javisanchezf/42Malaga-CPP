@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 18:33:16 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/07 20:21:10 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:28:28 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 #include	<iostream>
 #include	<iomanip>
+#include 	<string>
+#include	<cstdlib>
 
 /*----------------------------CLASS----------------------------*/
 
