@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:44 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/08 21:55:45 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/09 18:40:18 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class	PhoneBook
 
 	public:
 		PhoneBook(void);
-		~PhoneBook(void);
+		~PhoneBook();
 		void		welcome(void);
 		void		add_contact(void);
 		void		search_contact(void) const;

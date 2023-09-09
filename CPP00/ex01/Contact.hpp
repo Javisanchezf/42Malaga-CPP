@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 18:33:16 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/08 21:55:06 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/09 18:39:56 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Contact
 
 	public:
 		Contact(void);
-		~Contact(void);
+		~Contact();
 
 		std::string		get_data(int i)	const;
 		void			set_data(int i, std::string str);
