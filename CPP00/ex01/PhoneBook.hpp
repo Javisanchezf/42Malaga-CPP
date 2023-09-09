@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:44 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/09 18:40:18 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/09 19:05:06 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 /*----------------------------LIBRARIES----------------------------*/
 
 #include	"Contact.hpp"
+#include	<iostream>
+#include	<iomanip>
+#include 	<string>
+#include	<cstdlib>
 
 /*----------------------------COLORS----------------------------*/
 # define BOLD	"\033[1m"
