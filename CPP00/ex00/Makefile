@@ -6,7 +6,7 @@
 #    By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/27 18:14:52 by javiersa          #+#    #+#              #
-#    Updated: 2023/06/27 18:25:21 by javiersa         ###   ########.fr        #
+#    Updated: 2023/09/08 21:45:11 by javiersa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC = $(wildcard *.cpp)
 OBJS := $(SRC:.cpp=.o)
 
 # Personal use variables
-PARAMS = hola que tal
+PARAMS = nothing
 DATETIME := $(shell date +%Y-%m-%d' '%H:%M:%S)
 GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 USER := $(shell whoami)

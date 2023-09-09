@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+         #
+#    By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/06 21:29:41 by javiersa          #+#    #+#              #
-#    Updated: 2023/09/07 20:04:39 by javiersa         ###   ########.fr        #
+#    Updated: 2023/09/08 21:53:26 by javiersa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # General variables
-NAME = phonebook.a
-PROGRAM = phonebook
-PERSONALNAME = Megaphone
+NAME = PhoneBook.a
+PROGRAM = PhoneBook
+PERSONALNAME = PhoneBook
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
 CLEAN = rm -Rf
@@ -21,7 +21,7 @@ SRC = $(wildcard *.cpp)
 OBJS := $(SRC:.cpp=.o)
 
 # Personal use variables
-PARAMS = hola que tal
+PARAMS = nothing
 DATETIME := $(shell date +%Y-%m-%d' '%H:%M:%S)
 GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 USER := $(shell whoami)
