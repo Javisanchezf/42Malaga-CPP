@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 20:02:08 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/08 21:56:10 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/09 19:51:34 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ std::string	cin_plus(std::string str)
 		else if (std::cin.eof())
 			exit(0);
 		else
-			std::cout << RED "Invalid input; please try again.\n" DEFAULT;
+			std::cerr << RED "Invalid input; please try again.\n" DEFAULT;
 		std::cin.clear();
 	}
 	return(input);
@@ -48,7 +48,7 @@ int	main(void)
 		else if (command.compare("EXIT") == 0)
 			break ;
 		else
-			std::cout << RED "Invalid command. You can only use ADD, \
+			std::cerr << RED "Invalid command. You can only use ADD, \
 SEARCH or EXIT.\n" DEFAULT;
 	}
 }

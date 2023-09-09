@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:52:37 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/09 18:40:11 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/09 19:52:25 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		PhoneBook::search_contact(void) const
 	i = 0;
 	if (this->_index == 0)
 	{
-		std::cout << RED "There are no contacts to search yet.\n" DEFAULT;
+		std::cerr << RED "There are no contacts to search yet.\n" DEFAULT;
 		return ;
 	}
 	std::cout << GREEN "---------------------------------------------\n";

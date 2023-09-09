@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook_private.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 21:49:44 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/08 21:53:37 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/09 19:52:09 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ std::string	PhoneBook::_getinput(std::string str) const
 		else if (std::cin.eof())
 			exit(0);
 		else
-			std::cout << RED "Invalid input; please try again.\n" DEFAULT;
+			std::cerr << RED "Invalid input; please try again.\n" DEFAULT;
 		std::cin.clear();
 	}
 	return(input);
@@ -68,7 +68,7 @@ int		PhoneBook::_getintinput(std::string str, int max) const
 		{
 			if (!std::isdigit(strinput[_]))
 			{
-				std::cout << RED "Invalid input; please enter a valid integer.\n" DEFAULT;
+				std::cerr << RED "Invalid input; please enter a valid integer.\n" DEFAULT;
 				valid = false;
 				break ;
 			}
@@ -78,7 +78,7 @@ int		PhoneBook::_getintinput(std::string str, int max) const
 			input = std::atoi(strinput.c_str());			
 			if (input > max || input < 0)
 			{
-				std::cout << RED "Input out of range for contact; please try 0 to " << max << ".\n" DEFAULT;
+				std::cerr << RED "Input out of range for contact; please try 0 to " << max << ".\n" DEFAULT;
 				valid = false;
 			}
 		}
