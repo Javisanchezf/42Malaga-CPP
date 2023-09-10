@@ -6,14 +6,14 @@
 #    By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/09 18:32:29 by javiersa          #+#    #+#              #
-#    Updated: 2023/09/10 13:51:53 by javiersa         ###   ########.fr        #
+#    Updated: 2023/09/10 13:52:51 by javiersa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # General variables
-NAME = ZombieHorde.a
-PROGRAM = ZombieHorde
-PERSONALNAME = ZombieHorde
+NAME = StringManagement.a
+PROGRAM = StringManagement
+PERSONALNAME = StringManagement
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
 CLEAN = rm -Rf
