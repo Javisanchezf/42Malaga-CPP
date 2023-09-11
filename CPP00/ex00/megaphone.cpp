@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:21:50 by javiersa          #+#    #+#             */
-/*   Updated: 2023/06/27 18:21:53 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:36:38 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 int	main(int argc, char **argv)
 {
-	using std::cout;
-
 	if (argc == 1)
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else
 		for (int i = 1; argv[i]; i++)
 			for (int j = 0; argv[i][j]; j++)
-				cout << (char) toupper(argv[i][j]);
-	cout << "\n";
+				std::cout << (char) toupper(argv[i][j]);
+	std::cout << "\n";
 }
