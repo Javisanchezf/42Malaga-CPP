@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:53:08 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/11 17:14:34 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/12 22:07:24 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 	std::cout << "\nMemory address of the string variable:\t" << &stringORG << "\n";
 	std::cout << "Memory address of the string stringPTR:\t" << stringPTR << "\n";
 	std::cout << "Memory address of the string stringREF:\t" << &stringREF << "\n\n";
-	std::cout << "String variable value:\t" << stringORG << "\n";
+	std::cout << "String variable value:\t\t" << stringORG << "\n";
 	std::cout << "Value pointed to by stringPTR:\t" << *stringPTR << "\n";
 	std::cout << "Value pointed to by stringREF:\t" << stringREF << "\n";
 }
