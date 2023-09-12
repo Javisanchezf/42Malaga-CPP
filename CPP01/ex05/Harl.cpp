@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 21:04:20 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/12 21:57:52 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/12 22:02:17 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ void	Harl::debug(void)
 {
 	std::cout << GREEN "DEBUG DEFAULT MESSAGE:\n";
 	std::cout << "I love having extra bacon for my 7XL-double-cheese\
--triple-picklespecial-ketchup burger. I really do!\n" DEFAULT;
+-triple-picklespecial-ketchup burger.\nI really do!\n" DEFAULT;
 }
 
 void	Harl::info(void)
 {
 	std::cout << GRAY "INFO DEFAULT MESSAGE:\n";
-	std::cout << "I cannot believe adding extra bacon costs more money. You \
+	std::cout << "I cannot believe adding extra bacon costs more money.\nYou \
 didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!\n" DEFAULT;
 }
 
 void	Harl::warning(void)
 {
 	std::cout << YELLOW "WARNING DEFAULT MESSAGE:\n";
-	std::cout << "I think I deserve to have some extra bacon for free. I’ve \
-been comingfor years whereas you started working here since last month.\n" DEFAULT;
+	std::cout << "I think I deserve to have some extra bacon for free.\nI’ve \
+been coming for years whereas you started working here since last month.\n" DEFAULT;
 }
 
 void	Harl::error(void)
