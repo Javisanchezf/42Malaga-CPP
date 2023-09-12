@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 21:00:52 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/12 21:05:00 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/12 21:51:49 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class Harl
 		Harl(void);
 		~Harl();
 		void	complain(std::string level);
+
 };
 
 #endif
