@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:19:30 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/13 19:13:18 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:52:06 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 class Fixed
 {
 	private:
-		int					fixed_point;
-		static const int	fraction;
+		int					_fixed_point;
+		static const int	_fraction;
 	public:
 		Fixed(void);
 		~Fixed();
