@@ -3,16 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 22:08:02 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/12 12:14:41 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:44:34 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 #include <string>
+
+std::string	replace(std::string s0, std::string s1, std::string s2)
+{
+	size_t	i = s0.find(s1);
+	while (i != std::string::npos)
+	{
+		s0 = s0.substr(0, i) + s2 + s0.substr(i + s1.length());
+		i = s0.find(s1, i + s2.length());
+	}
+	return (s0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -33,30 +44,14 @@ int	main(int argc, char **argv)
 		std::cerr << "Error creating output file " << argv[1] << ".replace.\n";
 		return (1);
 	}
-
-	char		ch;
-	while (inputFile.get(ch))
+	
+	std::string filecontent;
+	char		ch = inputFile.get();
+	while (ch != EOF)
 	{
-		if (ch == argv[2][0])
-		{
-			std::string	aux = "";
-			aux += ch;
-			size_t i = 0;
-			while (++i < ((std::string)argv[2]).length() && inputFile.get(ch))
-			{
-				aux += ch;
-				if (ch != argv[2][i])
-					break;
-			}
-			if (i == ((std::string)argv[2]).length())
-				outputFile << argv[3];
-			else
-				outputFile << aux;
-		}
-		else
-		{
-			outputFile.put(ch);
-        }
-    }
+		filecontent += ch;
+		ch = inputFile.get();
+	}
+	outputFile << replace(filecontent, argv[2], argv[3]);
 	std::cout << "Replacement completed. Result in: " << argv[1] << ".replace.\n";
 }
