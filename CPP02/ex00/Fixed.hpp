@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:19:30 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/14 11:04:20 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/14 19:21:13 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 class Fixed
 {
 	private:
-		int					_fixedPoint;
+		int					_fixed_int;
 		static const int	_fractionPart = 8;
 	public:
 		Fixed(void);
