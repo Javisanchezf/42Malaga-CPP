@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:19:30 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/13 21:52:06 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:04:20 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,14 @@
 class Fixed
 {
 	private:
-		int					_fixed_point;
-		static const int	_fraction;
+		int					_fixedPoint;
+		static const int	_fractionPart = 8;
 	public:
 		Fixed(void);
+		Fixed(const Fixed &copy);
+		Fixed& operator=(const Fixed &equal);
 		~Fixed();
+
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 };
