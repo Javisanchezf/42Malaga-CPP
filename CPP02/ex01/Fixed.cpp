@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:21:40 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/14 21:35:01 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/14 21:51:35 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(const int nbr)
 {
 	std::cout << "Int constructor called.\n";
-	this->_fixed_int = nbr * (1 << this->_fractionPart);
+	this->_fixed_int = (float)nbr * (1 << this->_fractionPart);
 }
 
 Fixed::Fixed(const float nbr)
@@ -83,5 +83,5 @@ float	Fixed::toFloat(void) const
 
 int		Fixed::toInt(void) const
 {
-	return (this->_fixed_int >> this->_fractionPart);
+	return ((float)this->_fixed_int / (1 << this->_fractionPart));
 }
