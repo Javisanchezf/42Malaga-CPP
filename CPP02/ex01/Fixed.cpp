@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:21:40 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/14 21:51:35 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/15 10:28:45 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->_fixed_int / (1 << this->_fractionPart));
+	return static_cast<float>(static_cast<float>(this->_fixed_int) / (1 << this->_fractionPart));
 }
 
 int		Fixed::toInt(void) const
 {
-	return ((float)this->_fixed_int / (1 << this->_fractionPart));
+	return (static_cast<float>(this->_fixed_int) / (1 << this->_fractionPart));
 }
