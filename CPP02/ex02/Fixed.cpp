@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:21:40 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/14 22:07:10 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/15 19:57:49 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,33 @@ std::ostream	&operator<<(std::ostream &o, Fixed const &fixed)
 	return (o << fixed.toFloat());
 }
 
+
+Fixed&			Fixed::operator++(void)
+{
+	++this->_fixed_int;
+	return (*this);
+}
+
+Fixed& Fixed::operator--(void)
+{
+	--this->_fixed_int;
+	return (*this);
+}
+
+Fixed			Fixed::operator++(int)
+{
+	Fixed tmp(*this);
+	this->_fixed_int++;
+	return (tmp);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed tmp(*this);
+	this->_fixed_int--;
+	return (tmp);
+}
+
 /*----------------------------PUBLIC-FUNCTIONS----------------------------*/
 
 int		Fixed::getRawBits(void) const
@@ -130,10 +157,39 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->_fixed_int / (1 << this->_fractionPart));
+	return (float)((float)this->_fixed_int / (1 << this->_fractionPart));
 }
 
 int		Fixed::toInt(void) const
 {
 	return ((float)this->_fixed_int / (1 << this->_fractionPart));
+}
+
+
+Fixed&			Fixed::min( Fixed &a, Fixed &b )
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+const Fixed&	Fixed::min( const Fixed &a, const Fixed &b )
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+Fixed&			Fixed::max( Fixed &a, Fixed &b )
+{
+	if (a > b)
+		return a;
+	return b;
+}
+
+const Fixed&	Fixed::max( const Fixed &a, const Fixed &b )
+{
+	if (a > b)
+		return a;
+	return b;
 }
