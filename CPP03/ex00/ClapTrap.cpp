@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:01 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/22 19:17:45 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/22 19:33:10 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,17 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &equal)
 	this->_energy = equal._energy;
 	this->_attack = equal._attack;
 	return (*this);
+}
+
+/*----------------------------PRIVATE-FUNCTIONS----------------------------*/
+bool	ClapTrap::check_energy(ClapTrap &clapi)
+{
+	if (clapi._energy > 0)
+	{
+		clapi._energy--;
+		return (0);
+	}
+	return (1)
 }
 
 /*----------------------------PUBLIC-FUNCTIONS----------------------------*/

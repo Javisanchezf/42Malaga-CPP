@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:04 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/21 20:18:56 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/22 19:31:06 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class ClapTrap
 		int			_health;
 		int			_energy;
 		int			_attack;
-
+		bool		check_energy(ClapTrap &clapi);
 	public:
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &copy);
