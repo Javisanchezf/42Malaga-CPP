@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 17:57:23 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/26 17:58:42 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/26 20:25:55 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,11 @@ class ScavTrap: public ClapTrap
 		~ScavTrap(void);
 
 		ScavTrap	&operator=(ScavTrap const &copy);
+		void		attack(const std::string &target);
 
 		void	guardGate(void);
+	private:
+		bool _guarding_gate;
 };
 
 #endif

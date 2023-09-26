@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:06 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/26 18:05:29 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/26 20:38:33 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,16 @@ int	main()
 	// for (int _ = 1; _ < 13 ; _++)
 	// 	Clapi0copy.takeDamage(_);
 	// std::cout << "\nNow Paco mix...\n\n";
-	Clapi1.takeDamage(9);
-	for (int _ = 1; _ < 6 ; _++)
+	Clapi1.takeDamage(99);
+	for (int _ = 1; _ < 10 ; _++)
 		Clapi1.beRepaired(_);
+	Clapi1.guardGate();
 	Clapi1.guardGate();
 	for (int _ = 0; _ < 6 ; _++)
 		Clapi1.attack("some other one");
+	Clapi1.guardGate();
+	Clapi1.guardGate();
+	Clapi1.guardGate();
 	Clapi1.takeDamage(1000);
 	Clapi1.attack("some other one");
 	Clapi1.guardGate();
