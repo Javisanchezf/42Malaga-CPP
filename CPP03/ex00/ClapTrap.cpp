@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:01 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/25 21:24:47 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/26 17:42:04 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,18 @@ void	ClapTrap::attack(const std::string& target)
 }
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_health - amount > 0)
-	// {
-	// 	this->_health -= amount;
-	// 	std::cout << RED << this->_name << " attacks to " << target << " with " << this->_attack << " attack damage!\n" DEFAULT;
-	// }
-	// else if (this->health <= 0)
-	// 	std::cout << YELLOW << this->_name << " is already dead...\n" DEFAULT;
-	// else
-	// 	std::cout << RED << this->_name << " attacks to " << target << " with " << this->_attack << " attack damage!\n" DEFAULT;
+	if (static_cast<int>(this->_health - amount) > 0)
+	{
+		this->_health -= amount;
+		std::cout << RED << this->_name << " took " << amount << " point(s) of damage! Current hit points: " << this->_health << "\n" DEFAULT;
+	}
+	else if (this->_health <= 0)
+		std::cout << YELLOW << this->_name << " is already dead...\n" DEFAULT;
+	else
+	{
+		this->_health = 0;
+		std::cout << RED << this->_name << " took " << amount << " point(s) of damage and it has died! Current hit points: " << this->_health << "\n" DEFAULT;
+	}
 }
 void	ClapTrap::beRepaired(unsigned int amount)
 {
