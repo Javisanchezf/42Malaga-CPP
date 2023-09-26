@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:01 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/26 18:15:11 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/26 20:23:35 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ _name(copy._name), _health(copy._health), _energy(copy._energy), _attack(copy._a
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &equal)
 {
-	std::cout << "Copy assignment operator for ClapTrap called.\n";
+	std::cout << "Copy assignment operator called.\n";
 	this->_name = equal._name;
 	this->_health = equal._health;
 	this->_energy = equal._energy;
