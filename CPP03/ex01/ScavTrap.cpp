@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 17:55:40 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/26 20:38:07 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/26 20:43:58 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ void	ScavTrap::guardGate(void)
 void	ScavTrap::attack(const std::string &target)
 {
 	if (this->_health > 0  && this->_guarding_gate == false && check_energy(*this))
-		std::cout << RED << this->_name << " attacks to " << target << " with " << this->_attack << " attack damage!\n" DEFAULT;
+		std::cout << RED << this->_name << " from Scavtrap attacks to " << target << " with " << this->_attack << " attack damage!\n" DEFAULT;
 	else if (this->_health > 0  && this->_guarding_gate == true && check_energy(*this))
 	{
-		std::cout << RED << this->_name << " leave the \"Gate keeper mode\" and attacks to " << target << " with " << this->_attack << " attack damage!\n" DEFAULT;
+		std::cout << RED << this->_name << " from Scavtrap leave the \"Gate keeper mode\" and attacks to " << target << " with " << this->_attack << " attack damage!\n" DEFAULT;
 		this->_guarding_gate = false;
 	}
 	else if (this->_health <= 0)
-		std::cout << YELLOW << this->_name << " is already dead...\n" DEFAULT;
+		std::cout << YELLOW << this->_name << " from Scavtrap is already dead...\n" DEFAULT;
 	else
-		std::cout << YELLOW << this->_name << " doesn't have enough energy to attack...\n" DEFAULT;
+		std::cout << YELLOW << this->_name << " from Scavtrap doesn't have enough energy to attack...\n" DEFAULT;
 		
 }
