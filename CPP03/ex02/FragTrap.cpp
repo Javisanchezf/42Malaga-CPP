@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 18:36:49 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/26 19:57:29 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/26 20:40:35 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,33 @@
 FragTrap::FragTrap(void)
 {
 	std::cout << "FragTrap from ClapTrap " << this->_name << " created with default constructor.\n";
+	this->_health = 100;
+	this->_energy = 100;
+	this->_attack = 30;
 }
 
 FragTrap::FragTrap(std::string const &name): ClapTrap(name)
 {
 	std::cout << "FragTrap from ClapTrap " << this->_name << " created.\n";
+	this->_health = 100;
+	this->_energy = 100;
+	this->_attack = 30;
+}
+
+/*----------------------------COPY-METHODS----------------------------*/
+
+FragTrap::FragTrap(FragTrap const &copy): ClapTrap(copy)
+{
+	std::cout << "FragTrap from ClapTrap " << this->_name << " copied.\n";
+}
+
+/*----------------------------OVERLOAD-OPERATORS----------------------------*/
+
+FragTrap	&FragTrap::operator=(FragTrap const &copy)
+{
+	std::cout << "Assignment operator for FragTrap called.\n";
+	ClapTrap::operator=(copy);
+	return (*this);
 }
 
 /*----------------------------DESTRUCTORS----------------------------*/
@@ -29,22 +51,6 @@ FragTrap::FragTrap(std::string const &name): ClapTrap(name)
 FragTrap::~FragTrap(void)
 {
 	std::cout << "FragTrap from ClapTrap " << this->_name << " destroyed.\n";
-}
-
-/*----------------------------DESTRUCTORS----------------------------*/
-
-FragTrap::FragTrap(FragTrap const &copy): ClapTrap(copy)
-{
-	std::cout << "FragTrap from ClapTrap " << this->_name << " copied.\n";
-}
-
-/*----------------------------DESTRUCTORS----------------------------*/
-
-FragTrap	&FragTrap::operator=(FragTrap const &copy)
-{
-	std::cout << "Assignment operator for FragTrap called.\n";
-	ClapTrap::operator=(copy);
-	return (*this);
 }
 
 /*----------------------------PUBLIC-FUNCTIONS----------------------------*/
