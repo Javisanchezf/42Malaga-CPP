@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:01 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/26 18:02:29 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:15:06 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@
 ClapTrap::ClapTrap(void):
 _name("Unnamed"), _health(100), _energy(50), _attack(20)
 {
-	std::cout << "Default constructor called.\n";
+	std::cout << "ClapTrap " << this->_name << " created.\n";
 }
 
 ClapTrap::ClapTrap(std::string name):
 _name(name), _health(100), _energy(50), _attack(20)
 {
-	std::cout << "Default constructor called.\n";
+	std::cout << "ClapTrap " << this->_name << " created.\n";
 }
 
 /*----------------------------DESTRUCTORS----------------------------*/
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Destructor called.\n";
+	std::cout << "ClapTrap " << this->_name << " destroyed.\n";
 }
 
 /*----------------------------DESTRUCTORS----------------------------*/
@@ -38,14 +38,14 @@ ClapTrap::~ClapTrap(void)
 ClapTrap::ClapTrap(const ClapTrap &copy):
 _name(copy._name), _health(copy._health), _energy(copy._energy), _attack(copy._attack)
 {
-	std::cout << "Copy constructor called.\n";
+	std::cout << "ClapTrap " << this->_name << " copied.\n";
 }
 
 /*----------------------------DESTRUCTORS----------------------------*/
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &equal)
 {
-	std::cout << "Copy assignment operator called.\n";
+	std::cout << "Copy assignment operator for ClapTrap called.\n";
 	this->_name = equal._name;
 	this->_health = equal._health;
 	this->_energy = equal._energy;
