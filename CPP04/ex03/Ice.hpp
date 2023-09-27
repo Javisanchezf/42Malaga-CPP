@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:04 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/27 21:27:55 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:40:22 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef AMATERIA_HPP
-#define AMATERIA_HPP
+#ifndef ICE_HPP
+#define ICE_HPP
 
 /*----------------------------LIBRARIES----------------------------*/
 #include <iostream>
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
 /*----------------------------COLORS----------------------------*/
 # define BOLD		"\033[1m"
@@ -31,21 +32,17 @@
 # define DEFAULT	"\033[0m"
 
 /*----------------------------CLASSES----------------------------*/
-class ICharacter;
-class AMateria
-{
-	protected:
-		std::string		_type;
-	public:
-		AMateria(void);
-		AMateria(std::string type);
-		AMateria(const AMateria &copy);
-		AMateria& operator=(const AMateria &equal);
-		virtual ~AMateria();
 
-		virtual AMateria*	clone() const = 0;
-		std::string const &	getType() const;
-		virtual void		use(ICharacter& target);
+class Ice: public AMateria
+{
+	public:
+		Ice(void);
+		Ice(const Ice &copy);
+		Ice& operator=(const Ice &equal);
+		~Ice();
+
+		AMateria*	clone() const;
+		void		use(ICharacter& target);
 };
 
 #endif

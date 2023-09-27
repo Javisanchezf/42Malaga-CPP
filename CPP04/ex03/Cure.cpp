@@ -1,46 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:01 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/27 21:37:21 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:43:10 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Cure.hpp"
 
 /*----------------------------CONSTRUCTORS----------------------------*/
 
-AMateria::AMateria(void): _type("Unnamed")
+Cure::Cure(void): AMateria("Cure")
 {
-	std::cout << "AMateria " << this->_type << " created.\n";
-}
-
-AMateria::AMateria(std::string type): _type(type)
-{
-	std::cout << "AMateria " << this->_type << " created.\n";
+	std::cout << "Cure " << this->_type << " created.\n";
 }
 
 /*----------------------------DESTRUCTORS----------------------------*/
 
-AMateria::~AMateria(void)
+Cure::~Cure(void)
 {
-	std::cout << "AMateria " << this->_type << " destroyed.\n";
+	std::cout << "Cure " << this->_type << " destroyed.\n";
 }
 
 /*----------------------------COPY-METHODS----------------------------*/
 
-AMateria::AMateria(const AMateria &copy): _type(copy._type)
+Cure::Cure(const Cure &copy): AMateria("Cure")
 {
-	std::cout << "AMateria " << this->_type << " copied.\n";
+	this->_type = copy._type;
+	std::cout << "Cure " << this->_type << " copied.\n";
 }
 
 /*----------------------------OVERLOAD-OPERATORS----------------------------*/
 
-AMateria& AMateria::operator=(const AMateria &equal)
+Cure& Cure::operator=(const Cure &equal)
 {
 	std::cout << "Copy assignment operator called.\n";
 	this->_type = equal._type;
@@ -49,17 +45,12 @@ AMateria& AMateria::operator=(const AMateria &equal)
 
 /*----------------------------PUBLIC-FUNCTIONS----------------------------*/
 
-std::string	const&	AMateria::getType(void) const
+AMateria*			Cure::clone() const
 {
-	return (this->_type);
+	return new Cure(*this);
 }
 
-AMateria*			AMateria::clone() const
+void				Cure::use(ICharacter& target)
 {
-	return (AMateria*)(this);
-}
-
-void				AMateria::use(ICharacter& target)
-{
-	std::cout << "AMateria " << this->_type << " used on" << target.getName() <<".\n";
+	std::cout << "Cure " << this->_type << " * heals" << target.getName() <<"’s wounds *.\n";
 }
