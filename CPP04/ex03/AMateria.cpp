@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:01 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/27 20:55:34 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:02:18 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ AMateria*			AMateria::clone() const
 	return (AMateria*)(this);
 }
 
-// void				AMateria::use(ICharacter& target)
-// {
-	// std::cout << "AMateria " << this->_type << " used on" << target.getName() <<".\n";
-// }
+void				AMateria::use(ICharacter& target)
+{
+	std::cout << "AMateria " << this->_type << " used on" << target.getName() <<".\n";
+}
