@@ -6,32 +6,30 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:06 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/26 17:48:47 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/27 14:34:43 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ClapTrap.hpp"
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-int	main()
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+
+int main()
 {
-	ClapTrap Clapi0;
-	ClapTrap Clapi0copy = Clapi0;
-	ClapTrap Clapi1("Paco");
-
-	// for (int _ = 0; _ < 12 ; _++)
-	// 	Clapi0.attack("someone");
-	// std::cout << "\nNow the copy...\n\n";
-	// for (int _ = 1; _ < 12 ; _++)
-	// 	Clapi0copy.beRepaired(_);
-	// std::cout << "\nKilling the copy...\n\n";
-	// for (int _ = 1; _ < 13 ; _++)
-	// 	Clapi0copy.takeDamage(_);
-	// std::cout << "\nNow Paco mix...\n\n";
-	Clapi1.takeDamage(9);
-	for (int _ = 1; _ < 6 ; _++)
-		Clapi1.beRepaired(_);
-	for (int _ = 0; _ < 6 ; _++)
-		Clapi1.attack("some other one");
-	Clapi1.takeDamage(1000);
-	Clapi1.attack("some other one");
+	std::cout << GREEN"\n\n";
+	const Animal *meta = new Animal();
+	const Animal *j = new Dog();
+	const Animal *i = new Cat();
+	std::cout << DEFAULT"\n\n";
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); // will output the cat sound!
+	j->makeSound();
+	std::cout << RED"\n\n";
+	delete meta;
+	delete j;
+	delete i;
 }
