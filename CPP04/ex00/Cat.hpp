@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:04 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/27 12:53:55 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/27 13:46:14 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Cat : public Animal
 {		
 	public:
 		Cat(void);
-		virtual ~Cat();
+		~Cat();
 
 		void	makeSound(void) const;
 };
