@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:06 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/27 14:34:43 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/28 18:03:21 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int main()
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound(); // will output the cat sound!
 	j->makeSound();
+	std::cout << YELLOW"\nTesting deep copy:\n\n";
+	Dog *basic = new Dog();
+	Dog tmp = *basic;
 	std::cout << RED"\n\n";
 	delete meta;
 	delete j;
