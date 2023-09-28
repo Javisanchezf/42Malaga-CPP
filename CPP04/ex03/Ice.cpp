@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:01 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/27 21:42:29 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/28 09:36:25 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@
 Ice::Ice(void): AMateria("ice")
 {
 	std::cout << "Ice " << this->_type << " created.\n";
-}
-
-/*----------------------------DESTRUCTORS----------------------------*/
-
-Ice::~Ice(void)
-{
-	std::cout << "Ice " << this->_type << " destroyed.\n";
 }
 
 /*----------------------------COPY-METHODS----------------------------*/
@@ -42,6 +35,12 @@ Ice& Ice::operator=(const Ice &equal)
 	this->_type = equal._type;
 	return (*this);
 }
+/*----------------------------DESTRUCTORS----------------------------*/
+
+Ice::~Ice(void)
+{
+	std::cout << "Ice " << this->_type << " destroyed.\n";
+}
 
 /*----------------------------PUBLIC-FUNCTIONS----------------------------*/
 
@@ -52,5 +51,5 @@ AMateria*			Ice::clone() const
 
 void				Ice::use(ICharacter& target)
 {
-	std::cout << "Ice " << this->_type << " * shoots an ice bolt at" << target.getName() <<" *.\n";
+	std::cout << CYAN " * shoots an ice bolt at" << target.getName() <<" *.\n" DEFAULT;
 }

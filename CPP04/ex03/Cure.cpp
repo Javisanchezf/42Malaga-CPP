@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:01 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/27 21:43:10 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/28 11:10:43 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,14 @@
 
 /*----------------------------CONSTRUCTORS----------------------------*/
 
-Cure::Cure(void): AMateria("Cure")
+Cure::Cure(void): AMateria("cure")
 {
 	std::cout << "Cure " << this->_type << " created.\n";
 }
 
-/*----------------------------DESTRUCTORS----------------------------*/
-
-Cure::~Cure(void)
-{
-	std::cout << "Cure " << this->_type << " destroyed.\n";
-}
-
 /*----------------------------COPY-METHODS----------------------------*/
 
-Cure::Cure(const Cure &copy): AMateria("Cure")
+Cure::Cure(const Cure &copy): AMateria("cure")
 {
 	this->_type = copy._type;
 	std::cout << "Cure " << this->_type << " copied.\n";
@@ -43,6 +36,13 @@ Cure& Cure::operator=(const Cure &equal)
 	return (*this);
 }
 
+/*----------------------------DESTRUCTORS----------------------------*/
+
+Cure::~Cure(void)
+{
+	std::cout << "Cure " << this->_type << " destroyed.\n";
+}
+
 /*----------------------------PUBLIC-FUNCTIONS----------------------------*/
 
 AMateria*			Cure::clone() const
@@ -52,5 +52,5 @@ AMateria*			Cure::clone() const
 
 void				Cure::use(ICharacter& target)
 {
-	std::cout << "Cure " << this->_type << " * heals" << target.getName() <<"’s wounds *.\n";
+	std::cout << GREEN " * heals" << target.getName() <<"’s wounds *.\n" DEFAULT;
 }
