@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:12:01 by javiersa          #+#    #+#             */
-/*   Updated: 2023/09/27 21:37:21 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/09/28 10:52:24 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ std::string	const&	AMateria::getType(void) const
 
 AMateria*			AMateria::clone() const
 {
-	return (AMateria*)(this);
+	return (AMateria*)this;
 }
 
 void				AMateria::use(ICharacter& target)
