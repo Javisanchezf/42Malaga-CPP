@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:06:07 by javiersa          #+#    #+#             */
-/*   Updated: 2023/11/29 12:41:36 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:34:57 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ class Form
         int             getGradeToExecute(void) const;
         bool            getIsSigned(void) const;
         void            beSigned(const Bureaucrat& bureaucrat);
-        
+        void			signForm(const Bureaucrat& bureaucrat);
 
         class GradeTooHighException: public std::exception
         {

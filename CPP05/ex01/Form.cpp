@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:58:05 by javiersa          #+#    #+#             */
-/*   Updated: 2023/11/29 12:56:46 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:36:57 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,27 @@ bool            Form::getIsSigned(void) const
 
 void            Form::beSigned(const Bureaucrat& bureaucrat)
 {
-    if (this->_isSigned || bureaucrat.getGrade() > this->_gradeToSign)
-        std::cout << RED << bureaucrat.getName() << " couldn't sign " << this->_name << " because: " << DEFAULT;
     if (this->_isSigned)
         throw Form::FormAlreadySignedException();
     else if (bureaucrat.getGrade() > this->_gradeToSign)
         throw Form::GradeTooLowException();
     this->_isSigned = true;
-    std::cout << GREEN << bureaucrat.getName() << " signed " << this->_name << DEFAULT << std::endl;
 }
 
+void			Form::signForm(const Bureaucrat& bureaucrat)
+{
+	try
+	{
+		this->beSigned(bureaucrat);
+		std::cout << GREEN << bureaucrat.getName() << " signed " << this->_name << DEFAULT << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << RED << bureaucrat.getName() << " couldn't sign " <<
+		this->_name << " because: " << DEFAULT;
+		std::cerr << e.what() << '\n';
+	}
+}
 /*----------------------------PRIVATE-FUNCTIONS----------------------------*/
 
 /*----------------------------EXCEPTIONS----------------------------*/
