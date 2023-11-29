@@ -6,14 +6,14 @@
 #    By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:45:07 by javiersa          #+#    #+#              #
-#    Updated: 2023/11/29 11:15:23 by javiersa         ###   ########.fr        #
+#    Updated: 2023/11/29 12:36:27 by javiersa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # General variables
-NAME = Bureaucrat.a
-PROGRAM = Bureaucrat
-PERSONALNAME = Bureaucrat
+PERSONALNAME = Form
+NAME = $(PERSONALNAME).a
+PROGRAM = $(PERSONALNAME)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
 CLEAN = rm -Rf

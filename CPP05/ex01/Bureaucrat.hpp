@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:46:10 by javiersa          #+#    #+#             */
-/*   Updated: 2023/11/29 12:07:52 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:35:53 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
 class Bureaucrat
 {
     private:
-        const std::string const _name;
-        int                     _grade;
-        void                    setGrade(int grade);
+        const std::string   _name;
+        int                 _grade;
+        void                setGrade(int grade);
 		
 	public:
 		Bureaucrat(const std::string name, int grade);

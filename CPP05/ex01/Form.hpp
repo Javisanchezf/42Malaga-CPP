@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:06:07 by javiersa          #+#    #+#             */
-/*   Updated: 2023/11/29 12:07:30 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:41:36 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 /*----------------------------LIBRARIES----------------------------*/
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 /*----------------------------COLORS----------------------------*/
 # define BOLD		"\033[1m"
@@ -33,12 +34,42 @@
 
 class Form
 {
-private:
-    std::string const   _name;
-public:
-    Form(/* args */);
-    ~Form();
+    private:
+        const std::string   _name;
+        const int           _gradeToSign;
+        const int           _gradeToExecute;
+        bool                _isSigned;
+    public:
+        Form(const std::string name, int gradeToSign, int gradeToExecute);
+        Form(const Form &copy);
+        Form& operator=(const Form &equal);
+        ~Form();
+
+        std::string     getName(void) const;
+        int             getGradeToSign(void) const;
+        int             getGradeToExecute(void) const;
+        bool            getIsSigned(void) const;
+        void            beSigned(const Bureaucrat& bureaucrat);
+        
+
+        class GradeTooHighException: public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+        class FormAlreadySignedException: public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+        class GradeTooLowException: public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+    
 };
 
+std::ostream&   operator<<( std::ostream& o, const Form& rhs );
 
 #endif
