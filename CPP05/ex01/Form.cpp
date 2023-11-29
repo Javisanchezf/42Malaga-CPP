@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:58:05 by javiersa          #+#    #+#             */
-/*   Updated: 2023/11/29 17:36:57 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/11/29 18:32:18 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@ Form::Form(const std::string name, int gradeToSign, int gradeToExecute): _name(n
     if (gradeToSign < 1)
         throw Form::GradeTooHighException();
     else if (gradeToSign > 150)
-        throw Form::GradeTooLowException();
-    if (gradeToExecute < 1)
-        throw Form::GradeTooHighException();
-    else if (gradeToExecute > 150)
         throw Form::GradeTooLowException();
 }
 
