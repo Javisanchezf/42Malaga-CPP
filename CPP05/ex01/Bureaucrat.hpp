@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:46:10 by javiersa          #+#    #+#             */
-/*   Updated: 2023/11/29 12:35:53 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/11/29 20:20:10 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 /*----------------------------LIBRARIES----------------------------*/
 #include <iostream>
+#include "Form.hpp"
 
 /*----------------------------COLORS----------------------------*/
 # define BOLD		"\033[1m"
@@ -30,6 +31,9 @@
 # define DEFAULT	"\033[0m"
 
 /*----------------------------CLASSES----------------------------*/
+
+class Form;
+
 class Bureaucrat
 {
     private:
@@ -48,7 +52,8 @@ class Bureaucrat
 
         void            incrementGrade();
         void            decrementGrade();
-
+		void			signForm(Form& form);
+		
         class GradeTooHighException: public std::exception
         {
             public:

@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:06:07 by javiersa          #+#    #+#             */
-/*   Updated: 2023/11/29 17:34:57 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/11/29 20:19:56 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 
 /*----------------------------CLASSES----------------------------*/
 
+class Bureaucrat;
+
 class Form
 {
     private:
@@ -50,7 +52,6 @@ class Form
         int             getGradeToExecute(void) const;
         bool            getIsSigned(void) const;
         void            beSigned(const Bureaucrat& bureaucrat);
-        void			signForm(const Bureaucrat& bureaucrat);
 
         class GradeTooHighException: public std::exception
         {

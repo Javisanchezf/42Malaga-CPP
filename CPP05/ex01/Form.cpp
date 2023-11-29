@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:58:05 by javiersa          #+#    #+#             */
-/*   Updated: 2023/11/29 18:32:18 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/11/29 20:20:38 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,20 +76,6 @@ void            Form::beSigned(const Bureaucrat& bureaucrat)
     this->_isSigned = true;
 }
 
-void			Form::signForm(const Bureaucrat& bureaucrat)
-{
-	try
-	{
-		this->beSigned(bureaucrat);
-		std::cout << GREEN << bureaucrat.getName() << " signed " << this->_name << DEFAULT << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << RED << bureaucrat.getName() << " couldn't sign " <<
-		this->_name << " because: " << DEFAULT;
-		std::cerr << e.what() << '\n';
-	}
-}
 /*----------------------------PRIVATE-FUNCTIONS----------------------------*/
 
 /*----------------------------EXCEPTIONS----------------------------*/
@@ -113,9 +99,9 @@ const char* Form::GradeTooLowException::what() const throw()
 
 std::ostream&   operator<<( std::ostream& o, const Form& rhs )
 {
-    o << BOLD << rhs.getName() << DEFAULT << ", form grade to sign " << BOLD << rhs.getGradeToSign() <<
-    DEFAULT << ", form grade to execute " << BOLD << rhs.getGradeToExecute() <<
-    DEFAULT << ", form is signed " << BOLD << rhs.getIsSigned() << DEFAULT;
+    o  << rhs.getName() << ", form grade to sign " << rhs.getGradeToSign() <<
+	", form grade to execute " << rhs.getGradeToExecute() <<
+    ", form is signed " << BOLD << rhs.getIsSigned();
     return (o);
 }
 
