@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:14:41 by javiersa          #+#    #+#             */
-/*   Updated: 2023/11/29 20:12:45 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:40:03 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void)
 {
     try
     {
-        Bureaucrat  *bureaucrat = new Bureaucrat("Bureaucrat", 40);
+        Bureaucrat  *bureaucrat = new Bureaucrat("Bureaucrat", 10);
         AForm        *form = new PresidentialPardonForm("AForm");
         AForm        *form2 = new RobotomyRequestForm("AForm2");
         AForm        *form3 = new ShrubberyCreationForm("Tree_Name");
@@ -48,10 +48,13 @@ int main(void)
         bureaucrat->executeForm(*form3);
     
         delete bureaucrat;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "Grade out of range " << '\n';
+		delete form;
+		delete form2;
+		delete form3;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
     }
 
     return (0);
