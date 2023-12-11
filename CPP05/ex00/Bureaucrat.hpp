@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:46:10 by javiersa          #+#    #+#             */
-/*   Updated: 2023/11/29 11:12:04 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:34:20 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
