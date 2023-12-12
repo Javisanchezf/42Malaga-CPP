@@ -6,7 +6,7 @@
 /*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:35:09 by javiersa          #+#    #+#             */
-/*   Updated: 2023/12/12 18:24:59 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:49:59 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
-# include <random>
+# include <cstdlib>
 class RobotomyRequestForm: public AForm
 {
 	private:
