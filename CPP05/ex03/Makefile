@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+         #
+#    By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:45:07 by javiersa          #+#    #+#              #
-#    Updated: 2023/11/29 20:32:03 by javiersa         ###   ########.fr        #
+#    Updated: 2023/12/12 18:36:38 by javiersa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ GITIGNORE = .gitignore
 all: $(PROGRAM)
 
 
-$(PROGRAM): $(LIBFTPLUS_LIB) $(NAME)
+$(PROGRAM): $(NAME)
 	@$(CC) $(CFLAGS) $(NAME) -o $(PROGRAM)
 	@echo "$(MAGENTA)Program $(PERSONALNAME) created successfully.$(DEFAULT)"
 

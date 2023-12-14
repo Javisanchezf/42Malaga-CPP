@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:28:37 by javiersa          #+#    #+#             */
-/*   Updated: 2023/12/11 20:12:37 by javiersa         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:36:05 by javiersa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 
 Intern::Intern(void)
 {
-	this->_names[0] = "presidential pardon";
-	this->_names[1] = "robotomy request";
-	this->_names[2] = "shrubbery creation";
 }
 
 /*----------------------------COPY-METHODS----------------------------*/
@@ -32,11 +29,7 @@ Intern::Intern(const Intern &copy)
 
 Intern& Intern::operator=(const Intern &equal)
 {
-	if (this != &equal)
-	{
-		for (int i = 0; i < 3; i++)
-			this->_names[i] = equal._names[i];
-	}
+	(void)equal;
 	return (*this);
 }
 
@@ -46,30 +39,38 @@ Intern::~Intern(void)
 {
 }
 
+/*----------------------------PRIVATE-FUNCTIONS----------------------------*/
+
+AForm *makeShrubberyCreationForm(std::string target)
+{
+    return new ShrubberyCreationForm(target);
+}
+
+AForm *makeRobotomyRequestForm(std::string target)
+{
+    return new RobotomyRequestForm(target);
+}
+
+AForm *makePresidentialPardonForm(std::string target)
+{
+    return new PresidentialPardonForm(target);
+}
+
 /*----------------------------PUBLIC-FUNCTIONS----------------------------*/
 
 AForm* Intern::makeForm(std::string name, std::string target)
 {
-	int i = -1;
-	while (++i < 3)
-	{
-		if (name == this->_names[i])
-			break ;
-	}
-	switch (i)
-	{
-		case 0:
-			std::cout << "Intern creates " << name << std::endl;
-			return (new PresidentialPardonForm(target));
-		case 1:
-			std::cout << "Intern creates " << name << std::endl;
-			return (new RobotomyRequestForm(target));
-		case 2:
-			std::cout << "Intern creates " << name << std::endl;
-			return (new ShrubberyCreationForm(target));
-		default:
-			std::cout << "Intern can't create " << name << std::endl;
-			return (NULL);
-	}
-
+    typedef AForm *(*funcPtr)(std::string target);
+    std::string NameArray[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+    funcPtr funcArray[3] = {&makeShrubberyCreationForm, &makeRobotomyRequestForm, &makePresidentialPardonForm};
+    for (int i = 0; i < 3; i++)
+    {
+        if (name == NameArray[i])
+        {
+            std::cout << "Intern creates " << name << std::endl;
+            return (funcArray[i])(target);
+        }
+    }
+    std::cout << "Intern can't create " << name << std::endl;
+    return NULL;
 }
