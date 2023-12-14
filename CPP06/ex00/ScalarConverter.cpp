@@ -178,19 +178,28 @@ void ScalarConverter::printImpossible()
 	std::cout << "double: impossible" << std::endl;
 }
 
-int main(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		std::cout << "Usage: ./convert [input]" << std::endl;
-		return (1);
-	}
-	ScalarConverter converter(argv[1]);
-	converter.convert();
-	converter.printChar();
-	converter.printInt();
-	converter.printFloat();
-	converter.printDouble();
-	return (0);
-}
+// int main(int argc, char **argv)
+// {
+// 	if (argc != 2)
+// 	{
+// 		std::cout << "Usage: ./convert [input]" << std::endl;
+// 		return (1);
+// 	}
+// 	ScalarConverter converter(argv[1]);
+// 	converter.convert();
+// 	converter.printChar();
+// 	converter.printInt();
+// 	converter.printFloat();
+// 	converter.printDouble();
+// 	return (0);
+// }
 
+int main() {
+	float f = 42.42f;
+    float* ptrFloat = &f;
+
+    std::cout << "Valor del puntero: " << ptrFloat << std::endl;
+	std::cout << "Valor real: " << *ptrFloat << std::endl;
+
+    return 0;
+}
