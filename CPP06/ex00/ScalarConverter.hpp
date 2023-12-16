@@ -4,6 +4,7 @@
 
 # include <iostream>
 # include <string>
+#include <limits>
 
 class ScalarConverter
 {
@@ -17,6 +18,8 @@ class ScalarConverter
 		bool _isInt;
 		bool _isFloat;
 		bool _isDouble;
+		std::string _type;
+		void _getType();
 		ScalarConverter();
 	public:
 		ScalarConverter(std::string input);
@@ -25,12 +28,7 @@ class ScalarConverter
 		~ScalarConverter();
 
 		void convert();
-		void printChar();
-		void printInt();
-		void printFloat();
-		void printDouble();
-		void printImpossible();
+		void printScalar();
 };
-
 
 # endif
