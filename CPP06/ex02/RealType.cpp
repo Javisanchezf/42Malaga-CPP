@@ -36,21 +36,13 @@ void identify(Base &p)
     std::cout << "Identify by Reference: ";
     
     if (A *a = dynamic_cast<A*>(&p))
-    {
         std::cout << "A" << std::endl;
-    }
     else if (B *b = dynamic_cast<B*>(&p))
-    {
         std::cout << "B" << std::endl;
-    }
     else if (C *c = dynamic_cast<C*>(&p))
-    {
         std::cout << "C" << std::endl;
-    }
     else
-    {
         std::cout << "Unknown" << std::endl;
-    }
 }
 
 int main(void)
