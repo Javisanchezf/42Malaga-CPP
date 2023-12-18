@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Array.hpp"
 
-#define MAX_VAL 750
+#define MAX_VAL 20
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -30,5 +30,13 @@ int main(int, char**)
 			std::cout << GREEN "numbers[" << i << "] = " << numbers[i] << DEFAULT << std::endl;
     }
     delete [] mirror;//
+
+	Array<std::string> strings(4);
+	strings[0] = "Hello";
+	strings[1] = "World";
+	strings[2] = "!";
+	strings[3] = "How are you?";
+	for (unsigned int i = 0; i < strings.size(); i++)
+		std::cout << BLUE "strings[" << i << "] = " << strings[i] << DEFAULT << std::endl;	
     return 0;
 }
