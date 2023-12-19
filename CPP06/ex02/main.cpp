@@ -16,11 +16,11 @@ int main(void)
 	identify(c);
 	identify(*c);
 	std::cout << "---------------------------------" << std::endl;
-	std::cout << "Now the null: " << std::endl;
+	std::cout << "The null: " << std::endl;
 	identify(null);
 	identify(*null);
 	std::cout << "---------------------------------" << std::endl;
-	std::cout << "Now the random: " << std::endl;
+	std::cout << "The random: " << std::endl;
 	identify(p);
 	identify(*p);
 	delete a;
