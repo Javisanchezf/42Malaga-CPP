@@ -1,3 +1,7 @@
+#pragma once
+#ifndef REALTYPE_HPP
+# define REALTYPE_HPP
+
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -45,14 +49,4 @@ void identify(Base &p)
         std::cout << "Unknown" << std::endl;
 }
 
-int main(void)
-{
-	srand(time(NULL));
-	Base *p = generator();
-	// Base *p = nullptr;
-	identify(p);
-	identify(*p);
-	delete p;
-	return 0;
-}
-
+#endif
