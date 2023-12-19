@@ -24,29 +24,44 @@ Base *generator(void)
 
 void identify(Base *p)
 {
-	std::cout << "Identify by Pointer: ";
-	if (dynamic_cast<A*>(p))
-		std::cout << "A" << std::endl;
-	else if (dynamic_cast<B*>(p))
-		std::cout << "B" << std::endl;
-	else if (dynamic_cast<C*>(p))
-		std::cout << "C" << std::endl;
-	else
-		std::cout << "Unknown" << std::endl;
+	try
+	{
+		std::cout << "Identify by Pointer: ";
+		if (dynamic_cast<A*>(p))
+			std::cout << "A" << std::endl;
+		else if (dynamic_cast<B*>(p))
+			std::cout << "B" << std::endl;
+		else if (dynamic_cast<C*>(p))
+			std::cout << "C" << std::endl;
+		else
+			std::cout << "Unknown" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 }
 
 void identify(Base &p)
 {
-    std::cout << "Identify by Reference: ";
     
-    if (A *a = dynamic_cast<A*>(&p))
-        std::cout << "A" << std::endl;
-    else if (B *b = dynamic_cast<B*>(&p))
-        std::cout << "B" << std::endl;
-    else if (C *c = dynamic_cast<C*>(&p))
-        std::cout << "C" << std::endl;
-    else
-        std::cout << "Unknown" << std::endl;
+    try
+	{
+    	std::cout << "Identify by Reference: ";
+		if (A *a = dynamic_cast<A*>(&p))
+			std::cout << "A" << std::endl;
+		else if (B *b = dynamic_cast<B*>(&p))
+			std::cout << "B" << std::endl;
+		else if (C *c = dynamic_cast<C*>(&p))
+			std::cout << "C" << std::endl;
+		else
+			std::cout << "Unknown" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 #endif
