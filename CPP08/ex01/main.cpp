@@ -27,5 +27,14 @@ int main()
 		sp1.addNumber(i);
 	std::cout << "Shortest span: " << sp1.shortestSpan() << std::endl;
 	std::cout << "Longest span: " << sp1.longestSpan() << std::endl;
+	std::cout << "-----------------------------" << std::endl;
+	std::cout << "Bonus:" << std::endl;
+	int arr[10000];
+	for (int i = 0; i < 10000; i++)
+		arr[i] = i * 5;
+	Span sp2 = Span(10000);
+	sp2.addNumber(arr, 10000);
+	std::cout << "Shortest span: " << sp2.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp2.longestSpan() << std::endl;
 	return 0;
 }
