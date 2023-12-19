@@ -9,10 +9,13 @@ int main(void)
 	Base *c = new C;
 	Base *null = nullptr;
 	std::cout << "---------------------------------" << std::endl;
+	std::cout << "The A: " << std::endl;
 	identify(a);
 	identify(*a);
+	std::cout << "The B: " << std::endl;
 	identify(b);
 	identify(*b);
+	std::cout << "The C: " << std::endl;
 	identify(c);
 	identify(*c);
 	std::cout << "---------------------------------" << std::endl;

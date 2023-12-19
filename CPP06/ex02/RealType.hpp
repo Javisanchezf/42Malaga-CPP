@@ -26,7 +26,7 @@ void identify(Base *p)
 {
 	try
 	{
-		std::cout << "Identify by Pointer: ";
+		// std::cout << "Identify by Pointer: ";
 		if (dynamic_cast<A*>(p))
 			std::cout << "A" << std::endl;
 		else if (dynamic_cast<B*>(p))
@@ -48,7 +48,7 @@ void identify(Base &p)
     
     try
 	{
-    	std::cout << "Identify by Reference: ";
+    	// std::cout << "Identify by Reference: ";
 		if (A *a = dynamic_cast<A*>(&p))
 			std::cout << "A" << std::endl;
 		else if (B *b = dynamic_cast<B*>(&p))
