@@ -27,6 +27,5 @@ int main(void)
 	delete b;
 	delete c;
 	delete p;
-	// Base *p = nullptr;
 	return 0;
 }
