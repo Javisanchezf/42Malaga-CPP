@@ -6,7 +6,7 @@ int main() {
 	myData.value = 42;
 
     uintptr_t serializedValue = Serializer::serialize(&myData);
-    // uintptr_t serializedValue = Serializer::serialize(&nullptr);
+    // uintptr_t serializedValue = Serializer::serialize(nullptr);
 
     Data* deserializedData = Serializer::deserialize(serializedValue);
 
