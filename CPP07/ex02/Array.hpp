@@ -56,4 +56,11 @@ public:
 	}
 };
 
+template < typename T >
+std::ostream& operator<<( std::ostream& out, Array<T>& arr ) {
+    for ( unsigned int i( 0 ); i < arr.size(); i++ )
+        out << arr[i] << " ";
+    return out;
+}
+
 #endif
