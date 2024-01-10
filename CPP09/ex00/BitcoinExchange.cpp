@@ -41,7 +41,7 @@ BitcoinExchange::BitcoinExchange(std::string filename)
 				if (!isDateValid(date))
 					std::cout << RED "Error: invalid data format" DEFAULT << std::endl;
 				else if (!isPriceValid(bitcoinData[date]))
-					std::cout << RED "Error: invalid price" DEFAULT << std::endl;
+					std::cout << RED "Error: price out of range (0 - 10000)" DEFAULT << std::endl;
 				else
 					std::cout << BLUE << date << " | " << price << DEFAULT <<std::endl;
 			}
