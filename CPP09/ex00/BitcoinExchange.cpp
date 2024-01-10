@@ -124,9 +124,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
 {
 	if (this != &copy)
-	{
 		this->bitcoinData = copy.bitcoinData;
-	}
 	return (*this);
 }
 
