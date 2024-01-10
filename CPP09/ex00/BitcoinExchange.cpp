@@ -17,21 +17,21 @@ BitcoinExchange::BitcoinExchange(std::string filename)
 	if (!file.is_open())
 	{
 		std::cerr << "Error in data: could not open file " << filename << std::endl;
-		return ;
+		exit(1) ;
 	}
 	std::string line;
 	std::getline(file, line);
 	if (line == "")
 	{
 		std::cerr << RED "Error in data: empty file" DEFAULT << std::endl;
-		return ;
+		exit(1) ;
 	}
 	while (std::getline(file, line))
 	{
 		if (line.empty() || line.find_first_of(',') == std::string::npos)
 		{
 			std::cout << RED "Error in data: invalid line" DEFAULT << std::endl;
-			return ;
+			exit(1) ;
 		}
 		else
 		{
@@ -43,13 +43,13 @@ BitcoinExchange::BitcoinExchange(std::string filename)
 				if (!isDateValid(date))
 				{
 					std::cout << RED "Error in data: invalid data format" DEFAULT << std::endl;
-					return ;
+					exit(1) ;
 				}
 			}
 			catch(const std::exception& e)
 			{
 				std::cerr << RED "Error in data: " << e.what() << DEFAULT << std::endl;
-				return ;
+				exit(1) ;
 			}
 		}
 	}
