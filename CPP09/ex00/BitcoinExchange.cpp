@@ -59,6 +59,7 @@ BitcoinExchange::BitcoinExchange(std::string filename)
 void BitcoinExchange::consulteData(std::string filename)
 {
 	float aux;
+	bool start = false;
 
 	std::ifstream file(filename);
 	if (!file.is_open())
@@ -68,14 +69,18 @@ void BitcoinExchange::consulteData(std::string filename)
 	}
 	std::string line;
 	std::getline(file, line);
-	if (line == "")
+	if (line != "date | value")
 	{
-		std::cerr << RED "Error: empty file" DEFAULT << std::endl;
+		std::cerr << RED "Error: invalid format file" DEFAULT << std::endl;
 		return ;
 	}
-	std::cout << BLUE "date | price" DEFAULT << std::endl;
 	while (std::getline(file, line))
 	{
+		if (!start)
+		{
+			std::cout << BLUE "date | price" DEFAULT << std::endl;
+			start = true;
+		}
 		if (line.empty() || line.find_first_of('|') == std::string::npos)
 			std::cout << RED "Error: invalid line => " << line << DEFAULT << std::endl;
 		else
