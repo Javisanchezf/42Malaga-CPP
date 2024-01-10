@@ -21,12 +21,11 @@ BitcoinExchange::BitcoinExchange(std::string filename)
 	}
 	std::string line;
 	std::getline(file, line);
-	// std::cout << "First line: " << line << std::endl;
-	// if (line != "date,price")
-	// {
-	// 	std::cerr << "Error: invalid file format" << std::endl;
-	// 	return ;
-	// }
+	if (line == "")
+	{
+		std::cerr << RED "Error: empty file" DEFAULT << std::endl;
+		return ;
+	}
 	std::cout << BLUE "date | price" DEFAULT << std::endl;
 	while (std::getline(file, line))
 	{
