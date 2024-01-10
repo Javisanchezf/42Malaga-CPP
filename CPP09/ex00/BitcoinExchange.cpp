@@ -1,5 +1,16 @@
 #include "BitcoinExchange.hpp"
 
+std::string trim(const std::string& str) {
+    size_t first = str.find_first_not_of(' ');
+    
+    size_t last = str.find_last_not_of(' ');
+
+    if (first == std::string::npos || last == std::string::npos)
+        return "";
+
+    return str.substr(first, last - first + 1);
+}
+
 BitcoinExchange::BitcoinExchange(std::string filename)
 {
 	std::ifstream file(filename);
@@ -19,12 +30,12 @@ BitcoinExchange::BitcoinExchange(std::string filename)
 	std::cout << BLUE "date | price" DEFAULT << std::endl;
 	while (std::getline(file, line))
 	{
-		if (line.empty() || line.find_first_of(',') == std::string::npos)
+		if (line.empty() || line.find_first_of('|') == std::string::npos)
 			std::cout << RED "Error: invalid line" DEFAULT << std::endl;
 		else
 		{
-			std::string date = line.substr(0, line.find_first_of(','));
-			std::string price = line.substr(line.find_first_of(',') + 1);
+			std::string date = trim(line.substr(0, line.find_first_of('|')));
+			std::string price = trim(line.substr(line.find_first_of('|') + 1));
 			try
 			{
 				bitcoinData[date] = std::stof(price);
