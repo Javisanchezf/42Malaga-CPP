@@ -16,6 +16,53 @@ BitcoinExchange::BitcoinExchange(std::string filename)
 	std::ifstream file(filename);
 	if (!file.is_open())
 	{
+		std::cerr << "Error in data: could not open file " << filename << std::endl;
+		return ;
+	}
+	std::string line;
+	std::getline(file, line);
+	if (line == "")
+	{
+		std::cerr << RED "Error in data: empty file" DEFAULT << std::endl;
+		return ;
+	}
+	while (std::getline(file, line))
+	{
+		if (line.empty() || line.find_first_of(',') == std::string::npos)
+		{
+			std::cout << RED "Error in data: invalid line" DEFAULT << std::endl;
+			return ;
+		}
+		else
+		{
+			std::string date = trim(line.substr(0, line.find_first_of(',')));
+			std::string price = trim(line.substr(line.find_first_of(',') + 1));
+			try
+			{
+				bitcoinData[date] = std::stof(price);
+				if (!isDateValid(date))
+				{
+					std::cout << RED "Error in data: invalid data format" DEFAULT << std::endl;
+					return ;
+				}
+			}
+			catch(const std::exception& e)
+			{
+				std::cerr << RED "Error in data: " << e.what() << DEFAULT << std::endl;
+				return ;
+			}
+		}
+	}
+	file.close();
+}
+
+void BitcoinExchange::consulteData(std::string filename)
+{
+	float aux;
+
+	std::ifstream file(filename);
+	if (!file.is_open())
+	{
 		std::cerr << "Error: could not open file " << filename << std::endl;
 		return ;
 	}
@@ -30,20 +77,31 @@ BitcoinExchange::BitcoinExchange(std::string filename)
 	while (std::getline(file, line))
 	{
 		if (line.empty() || line.find_first_of('|') == std::string::npos)
-			std::cout << RED "Error: invalid line" DEFAULT << std::endl;
+			std::cout << RED "Error: invalid line => " << line << DEFAULT << std::endl;
 		else
 		{
 			std::string date = trim(line.substr(0, line.find_first_of('|')));
 			std::string price = trim(line.substr(line.find_first_of('|') + 1));
 			try
 			{
-				bitcoinData[date] = std::stof(price);
 				if (!isDateValid(date))
 					std::cout << RED "Error: invalid data format" DEFAULT << std::endl;
-				else if (!isPriceValid(bitcoinData[date]))
-					std::cout << RED "Error: price out of range (0 - 10000)" DEFAULT << std::endl;
 				else
-					std::cout << BLUE << date << " | " << price << DEFAULT <<std::endl;
+				{
+					aux = std::stof(price);
+					while (bitcoinData.find(date) == bitcoinData.end())
+					{
+						date = previousDate(date);
+						if (date == "2009-01-01")
+							break ;
+					}
+					if (date == "2009-01-01")
+						std::cout << RED "Error: invalid date" DEFAULT << std::endl;
+					else if (!isPriceValid(bitcoinData[date] * aux))
+						std::cout << RED "Error: price out of range (0 - 10000)" DEFAULT << std::endl;
+					else
+						std::cout << BLUE << date << " => " << bitcoinData[date] << " = " << bitcoinData[date] * aux << DEFAULT <<std::endl;
+				}
 			}
 			catch(const std::exception& e)
 			{
@@ -98,3 +156,32 @@ bool BitcoinExchange::isPriceValid(float price)
 	return (true);
 }
 
+std::string BitcoinExchange::previousDate(const std::string& date)
+{
+    int year = stof(date.substr(0, 4));
+	if (year < 2009)
+		return ("2009-01-01");
+    int month = stof(date.substr(5, 2));
+    int day = stof(date.substr(8, 2));
+
+    int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    day--;
+
+    if (day == 0) {
+        month--;
+
+        if (month == 0) {
+            month = 12;
+            year--;
+        }
+
+        day = daysInMonth[month];
+    }
+
+    std::string newYear = std::to_string(year);
+    std::string newMonth = (month < 10) ? "0" + std::to_string(month) : std::to_string(month);
+    std::string newDay = (day < 10) ? "0" + std::to_string(day) : std::to_string(day);
+
+    return newYear + "-" + newMonth + "-" + newDay;
+}

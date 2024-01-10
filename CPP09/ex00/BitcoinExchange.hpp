@@ -5,7 +5,7 @@
 /*----------------------------LIBRARIES----------------------------*/
 #include <iostream>
 #include <fstream>
-#include <unordered_map>
+#include <map>
 
 /*----------------------------COLORS----------------------------*/
 # define BOLD		"\033[1m"
@@ -23,7 +23,7 @@
 class BitcoinExchange
 {
 	private:
-		std::unordered_map<std::string, float> bitcoinData;
+		std::map<std::string, float> bitcoinData;
 		bool isDateValid(std::string date);
 		bool isPriceValid(float price);
 		BitcoinExchange();
@@ -31,6 +31,8 @@ class BitcoinExchange
 		BitcoinExchange(std::string filename);
 		BitcoinExchange(const BitcoinExchange &copy);
 		~BitcoinExchange();
+		void consulteData(std::string filename);
+		std::string previousDate(const std::string& date);
 		BitcoinExchange &operator=(const BitcoinExchange &copy);
 
 };
