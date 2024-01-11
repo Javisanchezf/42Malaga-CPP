@@ -24,6 +24,8 @@ PmergeMe::PmergeMe(char **input) : _vectorTime(0), _dequeTime(0)
 
 PmergeMe::~PmergeMe()
 {
+    this->_vector.clear();
+    this->_deque.clear();
     return;
 }
 
