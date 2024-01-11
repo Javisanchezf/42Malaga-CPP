@@ -178,3 +178,39 @@ void PmergeMe::run()
 
 }
 
+void PmergeMe::run_vector()
+{
+    this->_execute(this->_vector, this->_vectorTime);
+
+    std::cout << "Before sorting: ";
+    for (int i = 0; this->_input[i] && i < 10; i++)
+        std::cout << this->_input[i] << " ";
+    if (this->_vector.size() > 10)
+        std::cout << " [...]";
+    std::cout << std::endl;
+    std::cout << "After sorting: ";
+    for (unsigned long i = 0; i < 10 && i < this->_vector.size(); i++)
+        std::cout << this->_vector[i] << " ";
+    if (this->_vector.size() > 10)
+        std::cout << " [...]";
+    std::cout << std::endl;
+    std::cout << "Time to proccess a range of "<< this->_vector.size() << " elements with std::vector: " <<std::fixed << std::setprecision(4) << this->_vectorTime << " ms" << std::endl;
+}
+
+void PmergeMe::run_deque()
+{
+    std::cout << "Before sorting: ";
+    for (int i = 0; this->_input[i] && i < 10; i++)
+        std::cout << this->_input[i] << " ";
+    if (this->_deque.size() > 10)
+        std::cout << " [...]";
+    std::cout << std::endl;
+    std::cout << "After sorting: ";
+    for (unsigned long i = 0; i < 10 && i < this->_deque.size(); i++)
+        std::cout << this->_deque[i] << " ";
+    if (this->_deque.size() > 10)
+        std::cout << " [...]";
+    std::cout << std::endl;
+    std::cout << "Time to proccess a range of "<< this->_deque.size() << " elements with std::deque: " <<std::fixed << std::setprecision(4) << this->_dequeTime << " ms" << std::endl;
+    std::cout << DEFAULT;
+}

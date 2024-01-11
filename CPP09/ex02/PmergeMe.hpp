@@ -62,6 +62,8 @@ class PmergeMe
         PmergeMe &operator=(const PmergeMe &var);
         ~PmergeMe();
         void run();
+        void run_vector();
+        void run_deque();
 };
 
 #endif
