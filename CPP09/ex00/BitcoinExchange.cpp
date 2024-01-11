@@ -98,7 +98,7 @@ void BitcoinExchange::consulteData(std::string filename)
 					if (date == "2009-01-01")
 						std::cout << RED "Error: invalid date" DEFAULT << std::endl;
 					else if (!isPriceValid(bitcoinData[date] * aux))
-						std::cout << RED "Error: price out of range (0 - 10000)" DEFAULT << std::endl;
+						std::cout << RED "Error: price out of range (0 - 1000)" DEFAULT << std::endl;
 					else
 						std::cout << BLUE << date << " => " << bitcoinData[date] << " = " << bitcoinData[date] * aux << DEFAULT <<std::endl;
 				}
@@ -149,7 +149,7 @@ bool BitcoinExchange::isDateValid(std::string date)
 
 bool BitcoinExchange::isPriceValid(float price)
 {
-	if (price < 0 || price > 100000)
+	if (price < 0 || price > 1000)
 		return (false);
 	return (true);
 }
