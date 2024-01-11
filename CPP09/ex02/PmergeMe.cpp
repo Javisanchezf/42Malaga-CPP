@@ -132,8 +132,8 @@ void PmergeMe::_execute(Container &container, double &time)
         this->_fillContainer(container, this->_input);
         this->_merge_sort(container.begin(), container.end());
         end = std::clock();
+    	time = static_cast<double>(end - start) / (CLOCKS_PER_SEC / 1000.0);
     }
-    time = static_cast<double>(end - start) / (CLOCKS_PER_SEC / 1000.0);
 }
 
 void PmergeMe::run()
