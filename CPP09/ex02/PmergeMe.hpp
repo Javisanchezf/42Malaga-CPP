@@ -2,26 +2,34 @@
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
+/*----------------------------LIBRARIES----------------------------*/
 #include <iostream>
-#include <stdlib.h>
 #include <vector>
-#include <list>
 #include <deque>
 #include <ctime>
 #include <iomanip>
-#include <sstream>
 #include <algorithm>
 
+/*----------------------------COLORS----------------------------*/
+# define BOLD		"\033[1m"
+# define GRAY		"\033[30;1m"
+# define RED		"\033[31;1m"
+# define GREEN		"\033[32;1m"
+# define YELLOW		"\033[33;1m"
+# define BLUE		"\033[34;1m"
+# define MAGENTA	"\033[35;1m"
+# define CYAN		"\033[36;1m"
+# define WHITE		"\033[37;1m"
+# define DEFAULT	"\033[0m"
 
+/*----------------------------CLASSES----------------------------*/
 class PmergeMe
 {
     private:
         char **_input;
         std::vector<int> _vector;
-        std::list<int> _list;
         std::deque<int> _deque;
         double _vectorTime;
-        double _listTime;
         double _dequeTime;
 
         template <typename Container>

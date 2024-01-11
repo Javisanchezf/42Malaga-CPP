@@ -1,6 +1,6 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe(char **input) : _vectorTime(0), _listTime(0), _dequeTime(0)
+PmergeMe::PmergeMe(char **input) : _vectorTime(0), _dequeTime(0)
 {
     int i = -1;
     int j = -1;
@@ -33,10 +33,8 @@ PmergeMe::PmergeMe(const PmergeMe &var)
     {
         this->_input = var._input;
         this->_vector = var._vector;
-        this->_list = var._list;
         this->_deque = var._deque;
         this->_vectorTime = var._vectorTime;
-        this->_listTime = var._listTime;
         this->_dequeTime = var._dequeTime;
     }
 }
@@ -47,10 +45,8 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &var)
     {
         this->_input = var._input;
         this->_vector = var._vector;
-        this->_list = var._list;
         this->_deque = var._deque;
         this->_vectorTime = var._vectorTime;
-        this->_listTime = var._listTime;
         this->_dequeTime = var._dequeTime;
     }
     return (*this);
@@ -142,6 +138,8 @@ void PmergeMe::_execute(Container &container, double &time)
 
 void PmergeMe::run()
 {
+    std::string color_v = DEFAULT;
+    std::string color_d = DEFAULT;
     this->_execute(this->_vector, this->_vectorTime);
     this->_execute(this->_deque, this->_dequeTime);
     std::cout << "Before sorting: ";
@@ -150,8 +148,27 @@ void PmergeMe::run()
     std::cout << std::endl;
     std::cout << "After sorting: ";
     this->_printContainer(this->_vector);
-    std::cout << "Time to proccess a range of "<< this->_vector.size() << " elements with std::vector: " <<std::fixed << std::setprecision(4) << this->_vectorTime << "ms" << std::endl;
-    std::cout << "Time to proccess a range of "<< this->_deque.size() << " elements with std::deque: " <<std::fixed << std::setprecision(4) << this->_dequeTime << "ms" << std::endl;
+
+    if (this->_vectorTime < this->_dequeTime)
+    {
+        color_v = GREEN;
+        color_d = RED;
+    }
+    else if (this->_vectorTime > this->_dequeTime)
+    {
+        color_v = RED;
+        color_d = GREEN;
+    }
+    else
+    {
+        color_v = YELLOW;
+        color_d = YELLOW;
+    }
+    std::cout << color_v;
+    std::cout << "Time to proccess a range of "<< this->_vector.size() << " elements with std::vector: " <<std::fixed << std::setprecision(4) << this->_vectorTime << " ms" << std::endl;
+    std::cout << color_d;
+    std::cout << "Time to proccess a range of "<< this->_deque.size() << " elements with std::deque: " <<std::fixed << std::setprecision(4) << this->_dequeTime << " ms" << std::endl;
+    std::cout << DEFAULT;
 
 }
 
