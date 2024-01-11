@@ -199,6 +199,7 @@ void PmergeMe::run_vector()
 
 void PmergeMe::run_deque()
 {
+    this->_execute(this->_deque, this->_dequeTime);
     std::cout << "Before sorting: ";
     for (int i = 0; this->_input[i] && i < 10; i++)
         std::cout << this->_input[i] << " ";
