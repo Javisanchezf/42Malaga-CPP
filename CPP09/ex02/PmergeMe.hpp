@@ -40,10 +40,10 @@ class PmergeMe
 
 
         template <typename Iterator>
-        void merge(Iterator begin, Iterator mid, Iterator end);
+        void _merge(Iterator begin, Iterator mid, Iterator end);
 
         template <typename Iterator>
-        void merge_sort(Iterator begin, Iterator end);
+        void _merge_sort(Iterator begin, Iterator end);
 
         template <typename Container>
         void _execute(Container &container, double &time);

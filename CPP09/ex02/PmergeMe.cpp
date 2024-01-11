@@ -75,7 +75,7 @@ void PmergeMe::_printContainer(Container &container)
 }
 
 template <typename Iterator>
-void PmergeMe::merge(Iterator begin, Iterator mid, Iterator end)
+void PmergeMe::_merge(Iterator begin, Iterator mid, Iterator end)
 {
     std::vector<typename std::iterator_traits<Iterator>::value_type> left(begin, mid);
     std::vector<typename std::iterator_traits<Iterator>::value_type> right(mid, end);
@@ -104,7 +104,7 @@ void PmergeMe::merge(Iterator begin, Iterator mid, Iterator end)
 }
 
 template <typename Iterator>
-void PmergeMe::merge_sort(Iterator begin, Iterator end)
+void PmergeMe::_merge_sort(Iterator begin, Iterator end)
 {
     typename std::iterator_traits<Iterator>::difference_type size = std::distance(begin, end);
 
@@ -113,10 +113,10 @@ void PmergeMe::merge_sort(Iterator begin, Iterator end)
 
     Iterator mid = begin + size / 2;
 
-    merge_sort(begin, mid);
-    merge_sort(mid, end);
+    _merge_sort(begin, mid);
+    _merge_sort(mid, end);
 
-    merge(begin, mid, end);
+    _merge(begin, mid, end);
 }
 
 
@@ -130,7 +130,7 @@ void PmergeMe::_execute(Container &container, double &time)
     {
         start = std::clock();
         this->_fillContainer(container, this->_input);
-        this->merge_sort(container.begin(), container.end());
+        this->_merge_sort(container.begin(), container.end());
         end = std::clock();
     }
     time = static_cast<double>(end - start) / (CLOCKS_PER_SEC / 1000.0);
@@ -142,28 +142,34 @@ void PmergeMe::run()
     std::string color_d = DEFAULT;
     this->_execute(this->_vector, this->_vectorTime);
     this->_execute(this->_deque, this->_dequeTime);
-    std::cout << "Before sorting: ";
-    for (int i = 0; this->_input[i]; i++)
-        std::cout << this->_input[i] << " ";
-    std::cout << std::endl;
-    std::cout << "After sorting: ";
-    this->_printContainer(this->_vector);
-
     if (this->_vectorTime < this->_dequeTime)
     {
         color_v = GREEN;
-        color_d = RED;
+        color_d = YELLOW;
     }
     else if (this->_vectorTime > this->_dequeTime)
     {
-        color_v = RED;
+        color_v = YELLOW;
         color_d = GREEN;
     }
     else
     {
-        color_v = YELLOW;
-        color_d = YELLOW;
+        color_v = BLUE;
+        color_d = BLUE;
     }
+
+    std::cout << "Before sorting: ";
+    for (int i = 0; this->_input[i] && i < 10; i++)
+        std::cout << this->_input[i] << " ";
+    if (this->_vector.size() > 10)
+        std::cout << " [...]";
+    std::cout << std::endl;
+    std::cout << "After sorting: ";
+    for (unsigned long i = 0; i < 10 && i < this->_vector.size(); i++)
+        std::cout << this->_vector[i] << " ";
+    if (this->_vector.size() > 10)
+        std::cout << " [...]";
+    std::cout << std::endl;
     std::cout << color_v;
     std::cout << "Time to proccess a range of "<< this->_vector.size() << " elements with std::vector: " <<std::fixed << std::setprecision(4) << this->_vectorTime << " ms" << std::endl;
     std::cout << color_d;
