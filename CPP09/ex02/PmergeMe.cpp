@@ -137,15 +137,21 @@ void PmergeMe::_execute(Container &container, float &time)
         this->merge_sort(container.begin(), container.end());
         end = std::clock();
     }
-    time = (end - start) / (float)CLOCKS_PER_SEC;
-    this->_printContainer(container);
-    std::cout << "Time to proccess a range of "<< container.size() << " elements with : " <<std::fixed << std::setprecision(4) << time << "s" << std::endl;
+    time = (end - start) / ((float)CLOCKS_PER_SEC / 1000000.0f);
 }
 
 void PmergeMe::run()
 {
     this->_execute(this->_vector, this->_vectorTime);
-    // this->_execute(this->_list, this->_listTime);
     this->_execute(this->_deque, this->_dequeTime);
+    std::cout << "Before sorting the list: ";
+    for (int i = 0; this->_input[i]; i++)
+        std::cout << this->_input[i] << " ";
+    std::cout << std::endl;
+    std::cout << "After sorting the list: ";
+    this->_printContainer(this->_vector);
+    std::cout << "Time to proccess a range of "<< this->_vector.size() << " elements with std::vector: " <<std::fixed << std::setprecision(4) << this->_vectorTime << "us" << std::endl;
+    std::cout << "Time to proccess a range of "<< this->_deque.size() << " elements with std::deque: " <<std::fixed << std::setprecision(4) << this->_dequeTime << "us" << std::endl;
+
 }
 
