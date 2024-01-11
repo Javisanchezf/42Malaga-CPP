@@ -10,34 +10,50 @@
 #include <ctime>
 #include <iomanip>
 #include <sstream>
+#include <algorithm>
 
 
 class PmergeMe
 {
     private:
+        char **_input;
         std::vector<int> _vector;
         std::list<int> _list;
         std::deque<int> _deque;
         float _vectorTime;
         float _listTime;
         float _dequeTime;
-        void _printVector();
-        void _printList();
-        void _printDeque();
-        void _fillVector(char **input);
-        void _fillList(char **input);
-        void _fillDeque(char **input);
-        void _mergesort_vector();
-        void _mergesort_list();
-        void _mergesort_deque();
-        void _printTime();
 
+        template <typename Container>
+        Container _fillContainer(Container &container, char **input);
+
+        template <typename Container>
+        void _printContainer(Container &container);
+
+
+        template <typename Iterator>
+        void merge(Iterator begin, Iterator mid, Iterator end);
+
+        template <typename Iterator>
+        void merge_sort(Iterator begin, Iterator end);
+
+        template <typename Container>
+        void _execute(Container &container, float &time);
+
+        class InvalidInputException: public std::exception
+        {
+            public:
+                const char* what() const throw ()
+                {
+                    return ("Exception: invalid input");
+                }
+        };
     public:
-        PmergeMe();
+        PmergeMe(char **input);
         PmergeMe(const PmergeMe &var);
         PmergeMe &operator=(const PmergeMe &var);
         ~PmergeMe();
-        void merge(char **input);
+        void run();
 };
 
 #endif
