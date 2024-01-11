@@ -20,9 +20,9 @@ class PmergeMe
         std::vector<int> _vector;
         std::list<int> _list;
         std::deque<int> _deque;
-        float _vectorTime;
-        float _listTime;
-        float _dequeTime;
+        double _vectorTime;
+        double _listTime;
+        double _dequeTime;
 
         template <typename Container>
         Container _fillContainer(Container &container, char **input);
@@ -38,7 +38,7 @@ class PmergeMe
         void merge_sort(Iterator begin, Iterator end);
 
         template <typename Container>
-        void _execute(Container &container, float &time);
+        void _execute(Container &container, double &time);
 
         class InvalidInputException: public std::exception
         {

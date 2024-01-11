@@ -125,7 +125,7 @@ void PmergeMe::merge_sort(Iterator begin, Iterator end)
 
 
 template <typename Container>
-void PmergeMe::_execute(Container &container, float &time)
+void PmergeMe::_execute(Container &container, double &time)
 {
     std::clock_t start;
     std::clock_t end;
@@ -137,7 +137,7 @@ void PmergeMe::_execute(Container &container, float &time)
         this->merge_sort(container.begin(), container.end());
         end = std::clock();
     }
-    time = (end - start) / ((float)CLOCKS_PER_SEC / 1000000.0f);
+    time = static_cast<double>(end - start) / (CLOCKS_PER_SEC / 1000.0);
 }
 
 void PmergeMe::run()
