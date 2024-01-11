@@ -144,11 +144,11 @@ void PmergeMe::run()
 {
     this->_execute(this->_vector, this->_vectorTime);
     this->_execute(this->_deque, this->_dequeTime);
-    std::cout << "Before sorting the list: ";
+    std::cout << "Before sorting: ";
     for (int i = 0; this->_input[i]; i++)
         std::cout << this->_input[i] << " ";
     std::cout << std::endl;
-    std::cout << "After sorting the list: ";
+    std::cout << "After sorting: ";
     this->_printContainer(this->_vector);
     std::cout << "Time to proccess a range of "<< this->_vector.size() << " elements with std::vector: " <<std::fixed << std::setprecision(4) << this->_vectorTime << "us" << std::endl;
     std::cout << "Time to proccess a range of "<< this->_deque.size() << " elements with std::deque: " <<std::fixed << std::setprecision(4) << this->_dequeTime << "us" << std::endl;
