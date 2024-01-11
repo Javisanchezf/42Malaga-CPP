@@ -36,6 +36,8 @@ void RPN::calculate(std::string input)
 			continue;
 		else if (isdigit(c))
 			numbers.push(c - '0');
+		else if (c == '-' && isdigit(input[i + 1]))
+			numbers.push(-(input[++i] - '0'));
 		else if (c == '+' && numbers.size() >= 2)
 		{
 			b = numbers.top();
