@@ -3,22 +3,25 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: javiersa <javiersa@student.42malaga.com    +#+  +:+       +#+         #
+#    By: javiersa <javiersa@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:45:07 by javiersa          #+#    #+#              #
-#    Updated: 2024/01/09 20:41:41 by javiersa         ###   ########.fr        #
+#    Updated: 2024/01/17 19:16:13 by javiersa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # General variables
 PERSONALNAME = PmergeMe
-NAME = $(PERSONALNAME).a
-PROGRAM = $(PERSONALNAME)
-CFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
+CFLAGS = -Wall -Werror -Wextra -std=c++98
+
+LIBDIR = ./lib
+OBJDIR = ./obj
+LIB = $(LIBDIR)/$(PERSONALNAME).a
+PROGRAM = $(PERSONALNAME)
 CLEAN = rm -Rf
 SRC = $(wildcard *.cpp)
-OBJS := $(SRC:.cpp=.o)
+OBJS = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
 # Personal use variables
 PARAMS = nothing
@@ -28,27 +31,31 @@ USER := $(shell whoami)
 GITIGNORE = .gitignore
 
 # General rules
-
 all: $(PROGRAM)
 
-
-$(PROGRAM): $(NAME)
-	@$(CC) $(CFLAGS) $(NAME) -o $(PROGRAM)
+$(PROGRAM): $(LIB)
+	@$(CC) $(CFLAGS) $(LIB) -o $(PROGRAM)
 	@echo "$(MAGENTA)Program $(PERSONALNAME) created successfully.$(DEFAULT)"
-
-.cpp.o:
-	@$(CC) $(CFLAGS) -c $< -o ${<:.cpp=.o}
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
+	@echo "$(GREEN)Creating:$(DEFAULT) $(OBJDIR) directory."
+$(LIBDIR):
+	@mkdir -p $(LIBDIR)
+	@echo "$(GREEN)Creating:$(DEFAULT) $(LIBDIR) directory."
+$(OBJDIR)/%.o: %.cpp | $(OBJDIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "$(GREEN)Compiling:$(DEFAULT) $(notdir $<)"
-	
-$(NAME): $(OBJS)
-	@ar rcs $(NAME) $(OBJS)
-	@echo "$(MAGENTA)Library $(NAME) created successfully.$(DEFAULT)"
+$(LIB): $(OBJS) $(LIBDIR)
+	@ar rcs $(LIB) $(OBJS)
+	@echo "$(MAGENTA)Library $(LIB) created successfully.$(DEFAULT)"
 clean:
-	@$(CLEAN) ./$(OBJS)
+	@$(CLEAN) -f ./$(OBJS)
+	@$(CLEAN) -rf $(OBJDIR)
 	@echo "$(RED)Removing:$(DEFAULT) All objects from $(PERSONALNAME)."
 fclean: clean
-	@$(CLEAN) ./$(NAME) ./$(PROGRAM)
-	@echo "$(RED)Removing:$(DEFAULT) Library $(NAME)."
+	@$(CLEAN) ./$(LIB) ./$(PROGRAM)
+	@$(CLEAN) -rf $(LIBDIR)
+	@echo "$(RED)Removing:$(DEFAULT) Library $(LIB)."
 	@echo "$(RED)Removing:$(DEFAULT) Program $(PROGRAM)."
 re: fclean all
 
@@ -88,4 +95,4 @@ WHITE	:= \033[37;1m
 DEFAULT	:= \033[0m
 
 .PHONY : all clean fclean re \
-git submodules gitignore 42prepare valgrind_datarace valgrind_leaks
+git submodules 42prepare valgrind_datarace valgrind_leaks
